@@ -1,0 +1,7 @@
+eclipse-sumo      # netconvert and sumolib, for the reference road network
+pymupdf           # reads the PDFs (vector drawings and tables)
+numpy
+scipy
+shapely
+pyproj
+pillow
