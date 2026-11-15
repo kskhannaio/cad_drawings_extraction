@@ -1,0 +1,12 @@
+{
+ "_about": "Hand-picked points on the scanned metro survey sheets (BMRCL without tunnel-1.pdf). Pixel positions are in each page's embedded scan image (3308 x 2338 px), x right, y down. Benchmarks are the crossed squares at the end of each 'BM No' leader; their eastings and northings (UTM 43N) are printed on the sheet.",
+ "scale_from": {"page": 4, "benchmarks": [
+   {"name": "BM56", "px": [947.5, 912.5], "easting": 784638.796, "northing": 1430462.703},
+   {"name": "BM57", "px": [2503.5, 1570.5], "easting": 784852.161, "northing": 1430374.508}]},
+ "sheets": {"1": {"benchmark": {"name": "BM54", "px": [1366, 984], "easting": 783803.687, "northing": 1430787.211},
+   "shapes": [
+    {"layer": "metro_station", "what": "St John's Hospital metro station (Phase-3A), station box", "px": [[1680, 1200], [2894, 1630], [2854, 1786], [1644, 1350]]},
+    {"layer": "metro_station_land", "what": "St John's Hospital metro station: land marked for the station", "px": [[1696, 1144], [2940, 1616], [2870, 1850], [2540, 1736], [2524, 1704], [2090, 1556], [2050, 1660], [1590, 1424]]},
+    {"layer": "metro_station_land", "what": "St John's Hospital metro station: parking and pick-up / drop-off area", "px": [[1250, 1010], [1300, 994], [1696, 1144], [1600, 1424], [1490, 1390], [1380, 1240], [1250, 1070]]},
+    {"layer": "metro_station_land", "what": "St John's Hospital metro station: structure on the north side of Sarjapura Road (T-02), likely an entrance", "px": [[2356, 994], [2714, 1140], [2676, 1266], [2316, 1120]]}]}}
+}

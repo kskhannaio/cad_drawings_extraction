@@ -22,6 +22,7 @@ STEPS = [   # (name, script, what it does)
     ('extract',  's4_extract_drawings.py',     'extract every line, shape and label, and trace the structures (about 1 min)'),
     ('names',    's5_name_parts.py',           'cut the flyover deck into named parts and move labels onto them'),
     ('od',       's6_od_tables.py',            'pull the traffic and toll tables out of the origin-destination study'),
+    ('metro',    's7_metro_survey.py',         'place the St John\'s Hospital metro station from the scanned survey sheets'),
 ]
 NAMES = [s[0] for s in STEPS]
 
