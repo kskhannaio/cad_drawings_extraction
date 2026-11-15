@@ -61,12 +61,12 @@ def add(name, conf, basis, g, src=loop_f, part_of='Proposed elevated deck around
     out.append(named(src, g, name, conf, basis, part_of)); parts[name] = g
 
 add('Proposed Rotary at Level-1 (above Madiwala junction and the underpass)', 'high',
-    'the round, widest part of the deck, above the Madiwala underpass; label "Proposed Rotary at Level-1"', rotary)
+    'the round, widest part of the deck, above the Madiwala underpass; label "Proposed Rotary at Level-1". Schedule B: elevated rotary, 157 m, four lanes on a 15 m carriageway', rotary)
 add('Proposed Flyover at Level-1 (Madiwala rotary to Silk Board, along Hosur Road)', 'high',
     'the arm leaving the rotary to the south-east; label "Proposed Flyover at Level-1" sits beside it',
     shapely.unary_union(groups['S']))
-add('Hosur Road arm at Level-1 (rotary to St John\'s junction)', 'medium',
-    'the arm leaving the rotary to the north-west. "Exit Ramp 01" is not this arm: the loop plan (KENDRIYA SADANA.pdf) shows it as a separate ramp from the tunnel up onto Sarjapura Road at junction C, which is not traced',
+add('Audgodi loop (Proposed Loop at Level-1): Hosur Road, rotary to St John\'s junction', 'high',
+    'the arm leaving the rotary to the north-west, towards Adugodi. Schedule B of the tender lists it as the "Proposed Audgodi loop": two 7 m two-lane decks for 360 m, then one 17.2 m four-lane deck to 540 m. "Exit Ramp 01" is a separate ramp at junction C',
     shapely.unary_union(groups['C']))
 # the 100 Feet Road arm carries a ramp that curves east onto Sarjapura Road just before junction A: cut it at its neck
 armA = shapely.unary_union(groups['A'])
@@ -99,8 +99,8 @@ for i in notches:                                  # the neck: a notch with the 
                     if 80 < small.area < 1500 and small.distance(tip) < 1 and (best is None or score > best[0]): best = (score, small, max(pieces, key=lambda p: p.area))
 if best:
     ramp = best[1]; armA = shapely.unary_union([best[2]] + [g for g in getattr(armA, 'geoms', [armA]) if g is not biggest])
-add('Proposed Loop at Level-1: 100 Feet Road arm (rotary to the Ejipura flyover at junction A)', 'medium',
-    'the arm leaving the rotary to the north-east, either side of the Ejipura flyover ramp; label "Proposed Loop at Level-1" sits beside it', armA)
+add('Split flyover at Level-1: 100 Feet Road, Ejipura flyover to the Madivala rotary', 'high',
+    'the arm leaving the rotary to the north-east, either side of the Ejipura flyover ramp. Schedule B of the tender lists it as "Ejipura to Madivala rotary": two 8.5 m two-lane decks, 360 m each. It is not the "loop": that is the Hosur Road arm', armA)
 if ramp is not None:
     add('Down ramp at junction A, from the 100 Feet Road arm towards Agara (Sarjapura Road east)', 'medium',
         'the ramp that curves off the 100 Feet Road arm at junction A; the loop plan (KENDRIYA SADANA.pdf) labels it "Down Ramp towards Agara". It is not Entry Ramp 08', ramp)
@@ -143,7 +143,7 @@ json.dump(S, open(os.path.join(OUT, 'contract_structures.geojson'), 'w'))
 
 # ---- 3. labels onto their parts ----------------------------------------------------------------
 KEY = [('Proposed Rotary at Level-1', 'Proposed Rotary'), ('Proposed Flyover at Level-1', 'Proposed Flyover at Level-1'),
-       ('Proposed Loop at Level-1', 'Proposed Loop at Level-1'), ('Entry Ramp 08', 'Entry Ramp 08 (Sarjapur Road): ramp'),
+       ('Proposed Loop at Level-1', 'Audgodi loop (Proposed Loop at Level-1)'), ('Entry Ramp 08', 'Entry Ramp 08 (Sarjapur Road): ramp'),
        ('Proposed Flyover at Level-2', 'Proposed Flyover at Level-2'),
        ('Ejipura Flyover', 'Ejipura flyover ramp'), ('Elevated Flyover at Level-1 from Marathahalli', 'Elevated Flyover at Level-1 from Marathahalli'),
        ('Approach from 100 Feet Road', 'Approach from 100 Feet Road'), ('END OF PROJECT', 'Silk Board to Bommanahalli')]
