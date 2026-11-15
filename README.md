@@ -11,6 +11,8 @@ simulation can use it. It is a short sequence of Python scripts run in order by 
 | `extract` | `steps/s4_extract_drawings.py` | tender PDF | every line, shape and label (`full_*.geojsonl`), sheet images (`sheets/`), traced structures (`contract_structures.geojson`) and labels (`contract_labels.geojson`) |
 | `names` | `steps/s5_name_parts.py` | the two files above | the same two files, with the flyover deck cut into named parts and labels moved onto them |
 | `od` | `steps/s6_od_tables.py` | OD study PDF | `od/page*.csv` (the six tables) and `od/od_summary.json` |
+| `metro` | `steps/s7_metro_survey.py` | hand-picked points on the scanned metro survey sheets (`steps/metro_survey_points.json`) | `metro_station.geojson`: the St John's Hospital station box, its land, parking area and the structure across the road |
+| `loopplan` | `steps/s8_loop_plan.py` | hand-picked points on the plan of the loop (`steps/loop_plan_points.json`) | `loop_plan.geojson`: Exit Ramp 01, the tunnel-end strip and the pedestrian subway |
 
 ## Run
 
@@ -33,8 +35,13 @@ Read from `../../docs` (set `PIPELINE_DOCS` to change it). They are not in this 
 | `Ejipura to Silk Board Schedule A B C D F H I.pdf` (B-SMILE elevated-corridor tender) | drawing sheets: topographical survey 1–6, general alignment drawing 1–6, land acquisition plan 1–5 |
 | `OD and Toll Analysis OMR to Silk Board.pdf` | daily traffic by vehicle type, share diverting to the elevated corridor, trips between entry and exit points |
 
-Not automated yet: the corridor concept drawing (`OMR to Silk Board Concept 2-9-2025.pdf`, one vector sheet) and the
-metro survey sheets (`BMRCL without tunnel-1.pdf`, eight scanned sheets). Both were read by eye so far.
+| `BMRCL without tunnel-1.pdf` (metro survey, eight scanned sheets) | the metro station: placed from the survey benchmarks printed on the sheets, outlined by hand |
+| `KENDRIYA SADANA.pdf` (the corridor's plan of the loop, one image sheet) | tunnel ramps and the subway: placed by fitting known points, outlined by hand |
+
+The two scanned sources have no vector data, so their shapes are picked by hand and kept as pixel positions in
+`steps/*_points.json`. To add or correct a shape, edit that file and re-run the step.
+
+Not used yet: the corridor concept drawing (`OMR to Silk Board Concept 2-9-2025.pdf`, one vector sheet), read by eye so far.
 
 ## Who uses the output
 

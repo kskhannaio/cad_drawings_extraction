@@ -1,0 +1,20 @@
+{
+ "_about": "Hand-picked points on the corridor's plan of the loop (KENDRIYA SADANA.pdf, one sheet, a scanned-style image with no vector data). Pixel positions are on the page rendered at 110 dpi (5149 x 3643 px), x right, y down. Control points are things whose map position is known: the two foot over bridges (OpenStreetMap) and the centre of the Level-1 rotary (traced from the tender drawings).",
+ "render_dpi": 110,
+ "control": [
+  {"what": "centre of the rotary at Madiwala junction", "px": [3602, 1059], "utm": [784117.28, 1430240.73]},
+  {"what": "foot over bridge across Sarjapura Road, midpoint (OSM way 779344661)", "px": [1932, 1718], "lonlat": [77.6186606, 12.9284728]},
+  {"what": "foot over bridge at junction C, north end (OSM way 779344666)", "px": [2002, 3253], "lonlat": [77.6154993, 12.9297505]},
+  {"what": "foot over bridge at junction C, corner", "px": [2184, 3242], "lonlat": [77.6153626, 12.9294329]},
+  {"what": "foot over bridge at junction C, south-west end", "px": [2301, 3324], "lonlat": [77.6150742, 12.9292839]}],
+ "shapes": [
+  {"layer": "tunnel_ramp", "what": "Exit Ramp 01: ramp from the road tunnel up onto Sarjapura Road at junction C (part shown on the plan)",
+   "confidence": "medium", "basis": "orange cross-hatched band the label \"Exit Ramp 01\" points at; it runs off the edge of the sheet to the south-west",
+   "line_px": [[2052, 3100], [2055, 3200], [2075, 3300], [2115, 3380], [2170, 3460], [2230, 3540], [2295, 3643]], "width_m": 11},
+  {"layer": "tunnel_strip", "what": "Strip beside Hosur Road at the college playground, marked \"End of Main Tunnel Tube 1\" (chainage 16+745 towards junction C)",
+   "confidence": "low", "basis": "thin orange outline along the north-west side of the Hosur Road deck; the tunnel-end arrow and the chainages 16+745 and 16+700 sit at its top end. What it is (tunnel approach, ramp or land) is not stated",
+   "polygon_px": [[2688, 2422], [2702, 2430], [2400, 2950], [2382, 2940]]},
+  {"layer": "subway", "what": "Pedestrian subway under Sarjapura Road at the metro station (marked SUBWAY on the plan)",
+   "confidence": "medium", "basis": "two pairs of bars across Sarjapura Road labelled SUBWAY, between the BMRCL block on the hospital side and the station",
+   "line_px": [[1935, 2658], [2075, 2652]], "width_m": 5}]
+}
