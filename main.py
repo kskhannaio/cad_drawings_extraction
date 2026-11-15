@@ -22,7 +22,7 @@ STEPS = [   # (name, script, what it does)
     ('extract',  's4_extract_drawings.py',     'extract every line, shape and label, and trace the structures (about 1 min)'),
     ('names',    's5_name_parts.py',           'cut the flyover deck into named parts and move labels onto them'),
     ('od',       's6_od_tables.py',            'pull the traffic and toll tables out of the origin-destination study'),
-    ('metro',    's7_metro_survey.py',         'place the St John\'s Hospital metro station from the scanned survey sheets'),
+    ('metro',    's7_metro_survey.py',         'place Metro Phase-3A from the scanned survey sheets: three stations and the line to Jakkasandra'),
     ('loopplan', 's8_loop_plan.py',            'trace the tunnel approach and the subway from the plan of the loop'),
     ('concept',  's9_concept_tunnel.py',       'trace the road tunnel tubes and their ramps from the corridor concept drawing (about 2 min)'),
 ]

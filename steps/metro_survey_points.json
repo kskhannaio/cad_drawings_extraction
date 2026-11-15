@@ -1,12 +1,39 @@
 {
- "_about": "Hand-picked points on the scanned metro survey sheets (BMRCL without tunnel-1.pdf). Pixel positions are in each page's embedded scan image (3308 x 2338 px), x right, y down. Benchmarks are the crossed squares at the end of each 'BM No' leader; their eastings and northings (UTM 43N) are printed on the sheet.",
- "scale_from": {"page": 4, "benchmarks": [
-   {"name": "BM56", "px": [947.5, 912.5], "easting": 784638.796, "northing": 1430462.703},
-   {"name": "BM57", "px": [2503.5, 1570.5], "easting": 784852.161, "northing": 1430374.508}]},
- "sheets": {"1": {"benchmark": {"name": "BM54", "px": [1366, 984], "easting": 783803.687, "northing": 1430787.211},
-   "shapes": [
-    {"layer": "metro_station", "what": "St John's Hospital metro station (Phase-3A), station box", "px": [[1680, 1200], [2894, 1630], [2854, 1786], [1644, 1350]]},
-    {"layer": "metro_station_land", "what": "St John's Hospital metro station: land marked for the station", "px": [[1696, 1144], [2940, 1616], [2870, 1850], [2540, 1736], [2524, 1704], [2090, 1556], [2050, 1660], [1590, 1424]]},
-    {"layer": "metro_station_land", "what": "St John's Hospital metro station: parking and pick-up / drop-off area", "px": [[1250, 1010], [1300, 994], [1696, 1144], [1600, 1424], [1490, 1390], [1380, 1240], [1250, 1070]]},
-    {"layer": "metro_station_land", "what": "St John's Hospital metro station: structure on the north side of Sarjapura Road (T-02), likely an entrance", "px": [[2356, 994], [2714, 1140], [2676, 1266], [2316, 1120]]}]}}
+ "_about": "Hand-picked points on the scanned metro survey sheets (BMRCL without tunnel-1.pdf, 8 sheets along Sarjapura Road). Pixel positions are in each page's embedded scan image (3308 x 2338 px), x right, y down. Benchmarks are the crossed squares at the end of each 'BM No' leader; their eastings and northings (UTM 43N) are printed on the sheet. The sheets are NOT all at one scale: a sheet with two benchmarks gets its scale and rotation from them; a sheet with one gets its scale from track chainages printed on the sheets (see scale_basis) and is taken as north-up.",
+ "chainage_marks_m": {"St John's Hospital station centre": 20256.159, "Bridge intersection": 19795.348, "Null point": 19578.693, "Koramangala station centre": 19068.525, "Jakkasandra station centre": 18148.536},
+ "sheets": {
+  "1": {"benchmarks": [{"name": "BM54", "px": [1366, 984], "easting": 783803.687, "northing": 1430787.211}],
+        "scale_m_per_px": 0.159, "scale_basis": "the station centre mark must lie 460.8 m of track from the 'Bridge intersection' mark placed from sheet 3 (chainages 20+256.159 and 19+795.348); agrees with the lengths '200' and '61' written on this sheet",
+        "marks": {"St John's Hospital station centre": [2274, 1496]},
+        "shapes": [
+         {"layer": "metro_station", "what": "St John's Hospital metro station (Phase-3A), station box", "px": [[1680, 1200], [2894, 1630], [2854, 1786], [1644, 1350]]},
+         {"layer": "metro_station_land", "what": "St John's Hospital metro station: land marked for the station", "px": [[1696, 1144], [2940, 1616], [2870, 1850], [2540, 1736], [2524, 1704], [2090, 1556], [2050, 1660], [1590, 1424]]},
+         {"layer": "metro_station_land", "what": "St John's Hospital metro station: parking and pick-up / drop-off area", "px": [[1250, 1010], [1300, 994], [1696, 1144], [1600, 1424], [1490, 1390], [1380, 1240], [1250, 1070]]},
+         {"layer": "metro_station_land", "what": "St John's Hospital metro station: structure on the north side of Sarjapura Road (T-02), likely an entrance", "px": [[2356, 994], [2714, 1140], [2676, 1266], [2316, 1120]]}]},
+  "3": {"benchmarks": [{"name": "BM55", "px": [1366, 1160], "easting": 784418.347, "northing": 1430553.318}],
+        "scale_m_per_px": 0.1178, "scale_basis": "the 'Bridge intersection' and 'Null point' marks are both on this sheet and 216.655 m of track apart (chainages 19+795.348 and 19+578.693); the null point then lands 2.5 m from where sheet 4's two benchmarks put it",
+        "marks": {"Bridge intersection": [1054, 1190], "Null point": [2755, 1889]},
+        "shapes": [
+         {"layer": "metro_structure", "what": "Metro Phase-3A: land marked for the line's structure at junction A, in the St John's hostel grounds", "px": [[244, 687], [557, 810], [962, 1029], [890, 1244], [440, 1095], [426, 1121], [125, 1000]]},
+         {"layer": "metro_structure", "what": "Metro Phase-3A: box drawn at junction A (about 25 m by 31 m), beside the sheets' 'Bridge intersection' mark", "px": [[271, 738], [498, 833], [417, 1071], [179, 979]]}]},
+  "4": {"benchmarks": [{"name": "BM56", "px": [947.5, 912.5], "easting": 784638.796, "northing": 1430462.703},
+                       {"name": "BM57", "px": [2503.5, 1570.5], "easting": 784852.161, "northing": 1430374.508}],
+        "marks": {"Null point": [538, 857]},
+        "track": [[1014, 1048], [1202, 1121], [1354, 1183], [1506, 1235], [1663, 1274], [2130, 1424], [2426, 1480], [2780, 1620], [2936, 1700]]},
+  "5": {"benchmarks": [{"name": "BM58", "px": [1824, 1400], "easting": 785055.631, "northing": 1430286.467}],
+        "scale_m_per_px": 0.113, "scale_basis": "the station box is taken to be as long as Jakkasandra's (134 m, from sheet 8's two benchmarks); the 25 m pillar spacings written on this sheet give the same scale. The station centre is 89 px from the benchmark, so its position hardly depends on the scale: it lands 510 m of track from the null point, as the chainages say",
+        "marks": {"Koramangala station centre": [1874, 1326]},
+        "shapes": [{"layer": "metro_station", "what": "Koramangala metro station (Phase-3A, elevated), station box", "px": [[1360, 994], [2464, 1424], [2392, 1656], [1284, 1200]]}]},
+  "6": {"benchmarks": [{"name": "BM59", "px": [2048.5, 1662], "easting": 785282.215, "northing": 1430200.383}],
+        "scale_m_per_px": 0.12, "scale_basis": "assumed: the average of the neighbouring sheets, no second fixed point on this sheet. Positions away from the benchmark may be 10 to 15 m out",
+        "track": [[590, 1040], [1026, 1214], [1460, 1380], [1880, 1510], [2310, 1550], [2736, 1510]]},
+  "7": {"benchmarks": [{"name": "BM60", "px": [1602.7, 1195.5], "easting": 785535.416, "northing": 1430232.598}],
+        "scale_m_per_px": 0.12, "scale_basis": "assumed: the average of the neighbouring sheets, no second fixed point on this sheet. Positions away from the benchmark may be 10 to 15 m out",
+        "track": [[260, 1330], [1520, 1104], [3040, 824]]},
+  "8": {"benchmarks": [{"name": "BM61", "px": [871.3, 1516.7], "easting": 785772.085, "northing": 1430273.954},
+                       {"name": "BM62", "px": [2554.2, 1216.4], "easting": 785973.704, "northing": 1430308.356}],
+        "marks": {"Jakkasandra station centre": [2400, 1106]},
+        "track": [[260, 1500], [1300, 1290], [2400, 1106], [3050, 1010]],
+        "shapes": [{"layer": "metro_station", "what": "Jakkasandra metro station (Phase-3A, elevated), station box", "px": [[1836, 1096], [2940, 894], [2974, 1096], [1870, 1310]]}]}
+ }
 }

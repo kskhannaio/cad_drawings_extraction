@@ -11,7 +11,7 @@ simulation can use it. It is a short sequence of Python scripts run in order by 
 | `extract` | `steps/s4_extract_drawings.py` | tender PDF | every line, shape and label (`full_*.geojsonl`), sheet images (`sheets/`), traced structures (`contract_structures.geojson`) and labels (`contract_labels.geojson`) |
 | `names` | `steps/s5_name_parts.py` | the two files above | the same two files, with the flyover deck cut into named parts and labels moved onto them |
 | `od` | `steps/s6_od_tables.py` | OD study PDF | `od/page*.csv` (the six tables) and `od/od_summary.json` |
-| `metro` | `steps/s7_metro_survey.py` | hand-picked points on the scanned metro survey sheets (`steps/metro_survey_points.json`) | `metro_station.geojson`: the St John's Hospital station box, its land, parking area and the structure across the road |
+| `metro` | `steps/s7_metro_survey.py` | hand-picked points on the eight scanned metro survey sheets (`steps/metro_survey_points.json`) | `metro_station.geojson`: St John's Hospital, Koramangala and Jakkasandra station boxes, the land and structures marked for them, and the line from junction A to Jakkasandra |
 | `loopplan` | `steps/s8_loop_plan.py` | hand-picked points on the plan of the loop (`steps/loop_plan_points.json`) | `loop_plan.geojson`: the tunnel approach to the Audgodi loop and the pedestrian subway |
 | `concept` | `steps/s9_concept_tunnel.py` | corridor concept drawing (vector) | `concept_tunnel.geojson`: the road tunnel's two tubes, the box they end in, and the ramps to St John's junction including Exit Ramp 01 |
 
@@ -36,7 +36,7 @@ Read from `../../docs` (set `PIPELINE_DOCS` to change it). They are not in this 
 | `Ejipura to Silk Board Schedule A B C D F H I.pdf` (B-SMILE elevated-corridor tender) | drawing sheets: topographical survey 1–6, general alignment drawing 1–6, land acquisition plan 1–5 |
 | `OD and Toll Analysis OMR to Silk Board.pdf` | daily traffic by vehicle type, share diverting to the elevated corridor, trips between entry and exit points |
 
-| `BMRCL without tunnel-1.pdf` (metro survey, eight scanned sheets) | the metro station: placed from the survey benchmarks printed on the sheets, outlined by hand |
+| `BMRCL without tunnel-1.pdf` (metro survey, eight scanned sheets) | Metro Phase-3A along Sarjapura Road: placed from the survey benchmarks and track chainages printed on the sheets (each sheet has its own scale), outlined by hand |
 | `KENDRIYA SADANA.pdf` (the corridor's plan of the loop, one image sheet) | the tunnel approach and the subway: placed by fitting known points, outlined by hand |
 | `OMR to Silk Board Concept 2-9-2025.pdf` (corridor concept drawing, one vector sheet) | the road tunnel west of St John's junction: placed through labels shared with the tender sheets, traced by colour |
 
