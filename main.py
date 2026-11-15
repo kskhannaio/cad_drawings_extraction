@@ -23,7 +23,8 @@ STEPS = [   # (name, script, what it does)
     ('names',    's5_name_parts.py',           'cut the flyover deck into named parts and move labels onto them'),
     ('od',       's6_od_tables.py',            'pull the traffic and toll tables out of the origin-destination study'),
     ('metro',    's7_metro_survey.py',         'place the St John\'s Hospital metro station from the scanned survey sheets'),
-    ('loopplan', 's8_loop_plan.py',            'trace Exit Ramp 01, the tunnel-end strip and the subway from the plan of the loop'),
+    ('loopplan', 's8_loop_plan.py',            'trace the tunnel approach and the subway from the plan of the loop'),
+    ('concept',  's9_concept_tunnel.py',       'trace the road tunnel tubes and their ramps from the corridor concept drawing (about 2 min)'),
 ]
 NAMES = [s[0] for s in STEPS]
 

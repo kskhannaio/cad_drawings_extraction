@@ -60,43 +60,6 @@
  ],
  "shapes": [
   {
-   "layer": "tunnel_ramp",
-   "what": "Exit Ramp 01: ramp from the road tunnel up onto Sarjapura Road at junction C (part shown on the plan)",
-   "confidence": "medium",
-   "basis": "orange cross-hatched band the label \"Exit Ramp 01\" points at; it runs off the edge of the sheet to the south-west",
-   "line_px": [
-    [
-     2052,
-     3100
-    ],
-    [
-     2055,
-     3200
-    ],
-    [
-     2075,
-     3300
-    ],
-    [
-     2115,
-     3380
-    ],
-    [
-     2170,
-     3460
-    ],
-    [
-     2230,
-     3540
-    ],
-    [
-     2295,
-     3643
-    ]
-   ],
-   "width_m": 11
-  },
-  {
    "layer": "tunnel_strip",
    "what": "Tunnel approach connecting the road tunnel to the Audgodi loop (beside Hosur Road at the college playground)",
    "confidence": "medium",
@@ -137,5 +100,6 @@
    ],
    "width_m": 5
   }
- ]
+ ],
+ "_note_exit_ramp": "Exit Ramp 01 was first picked by hand here; it now comes from the concept drawing (step concept), which is vector and shows the whole ramp."
 }

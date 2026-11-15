@@ -12,7 +12,8 @@ simulation can use it. It is a short sequence of Python scripts run in order by 
 | `names` | `steps/s5_name_parts.py` | the two files above | the same two files, with the flyover deck cut into named parts and labels moved onto them |
 | `od` | `steps/s6_od_tables.py` | OD study PDF | `od/page*.csv` (the six tables) and `od/od_summary.json` |
 | `metro` | `steps/s7_metro_survey.py` | hand-picked points on the scanned metro survey sheets (`steps/metro_survey_points.json`) | `metro_station.geojson`: the St John's Hospital station box, its land, parking area and the structure across the road |
-| `loopplan` | `steps/s8_loop_plan.py` | hand-picked points on the plan of the loop (`steps/loop_plan_points.json`) | `loop_plan.geojson`: Exit Ramp 01, the tunnel-end strip and the pedestrian subway |
+| `loopplan` | `steps/s8_loop_plan.py` | hand-picked points on the plan of the loop (`steps/loop_plan_points.json`) | `loop_plan.geojson`: the tunnel approach to the Audgodi loop and the pedestrian subway |
+| `concept` | `steps/s9_concept_tunnel.py` | corridor concept drawing (vector) | `concept_tunnel.geojson`: the road tunnel's two tubes, the box they end in, and the ramps to St John's junction including Exit Ramp 01 |
 
 ## Run
 
@@ -36,12 +37,13 @@ Read from `../../docs` (set `PIPELINE_DOCS` to change it). They are not in this 
 | `OD and Toll Analysis OMR to Silk Board.pdf` | daily traffic by vehicle type, share diverting to the elevated corridor, trips between entry and exit points |
 
 | `BMRCL without tunnel-1.pdf` (metro survey, eight scanned sheets) | the metro station: placed from the survey benchmarks printed on the sheets, outlined by hand |
-| `KENDRIYA SADANA.pdf` (the corridor's plan of the loop, one image sheet) | tunnel ramps and the subway: placed by fitting known points, outlined by hand |
+| `KENDRIYA SADANA.pdf` (the corridor's plan of the loop, one image sheet) | the tunnel approach and the subway: placed by fitting known points, outlined by hand |
+| `OMR to Silk Board Concept 2-9-2025.pdf` (corridor concept drawing, one vector sheet) | the road tunnel west of St John's junction: placed through labels shared with the tender sheets, traced by colour |
 
 The two scanned sources have no vector data, so their shapes are picked by hand and kept as pixel positions in
 `steps/*_points.json`. To add or correct a shape, edit that file and re-run the step.
 
-Not used yet: the corridor concept drawing (`OMR to Silk Board Concept 2-9-2025.pdf`, one vector sheet), read by eye so far.
+Only the part of the concept drawing around the loop is used so far; it also covers the corridor north to Old Madras Road.
 
 ## Who uses the output
 
