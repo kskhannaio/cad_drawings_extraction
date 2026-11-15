@@ -65,8 +65,8 @@ add('Proposed Rotary at Level-1 (above Madiwala junction and the underpass)', 'h
 add('Proposed Flyover at Level-1 (Madiwala rotary to Silk Board, along Hosur Road)', 'high',
     'the arm leaving the rotary to the south-east; label "Proposed Flyover at Level-1" sits beside it',
     shapely.unary_union(groups['S']))
-add('Hosur Road arm at Level-1 (rotary to St John\'s junction, ends at Exit Ramp 01)', 'medium',
-    'the arm leaving the rotary to the north-west; label "Exit Ramp 01" is beyond its far end at junction C',
+add('Hosur Road arm at Level-1 (rotary to St John\'s junction)', 'medium',
+    'the arm leaving the rotary to the north-west. "Exit Ramp 01" is not this arm: the loop plan (KENDRIYA SADANA.pdf) shows it as a separate ramp from the tunnel up onto Sarjapura Road at junction C, which is not traced',
     shapely.unary_union(groups['C']))
 # the 100 Feet Road arm carries a ramp that curves east onto Sarjapura Road just before junction A: cut it at its neck
 armA = shapely.unary_union(groups['A'])
@@ -102,8 +102,8 @@ if best:
 add('Proposed Loop at Level-1: 100 Feet Road arm (rotary to the Ejipura flyover at junction A)', 'medium',
     'the arm leaving the rotary to the north-east, either side of the Ejipura flyover ramp; label "Proposed Loop at Level-1" sits beside it', armA)
 if ramp is not None:
-    add('Entry Ramp 08 (Sarjapur Road)', 'medium',
-        'the ramp that curves off the 100 Feet Road arm onto Sarjapura Road east of junction A; label "Entry Ramp 08 (Sarjapur Road)" is the nearest ramp label', ramp)
+    add('Down ramp at junction A, from the 100 Feet Road arm towards Agara (Sarjapura Road east)', 'medium',
+        'the ramp that curves off the 100 Feet Road arm at junction A; the loop plan (KENDRIYA SADANA.pdf) labels it "Down Ramp towards Agara". It is not Entry Ramp 08', ramp)
 
 # ---- 2. the other shapes ----------------------------------------------------------------------
 lab = {f['properties']['label']: utm(shape(f['geometry'])) for f in L['features']}
@@ -127,8 +127,8 @@ for f, g in zip(feats, geoms):
         out.append(named(f, g, nm, 'medium', 'between the dashed "START / END OF APPROACH, SECOND LEVEL" marks; a reading of the drawing'))
         parts[nm] = shapely.unary_union([parts.get(nm, g), g])
     elif layer == 'metro_tunnel':
-        nm = 'Tunnel, most likely the North-South road tunnel: Main Tunnel Tube 1 ends near St John\'s, Tube 2 starts west of Hosur Road'
-        out.append(named(f, g, nm, 'low', 'the drawings label it "Main Tunnel Tube 1 / Tube 2" with chainage 16+300; the corridor concept drawing (Sept 2025) names a "Tunnel North-South Corridor" with vehicular cross passages. The label "Metro Line (Phase-3A)" also sits here, but the metro survey sheets put that line along Sarjapura Road at chainage 20+256, so this band does not match the metro. Both tubes are drawn as one band'))
+        nm = 'Entry Ramp 08 (Sarjapur Road): ramp from Sarjapura Road down into the road tunnel (Main Tunnel Tube 2)'
+        out.append(named(f, g, nm, 'medium', 'the loop plan (KENDRIYA SADANA.pdf) points the label "Entry Ramp 08 (Sarjapur Road)" at this band: it leaves Sarjapura Road by St John\'s, runs under the college playground with its own chainage (0+000 to 0+596) and joins "Main Tunnel Tube 2" at junction C. The tender sheets also write "Metro Line (Phase-3A)" here, but the metro runs along Sarjapura Road'))
         parts[nm] = g
     elif layer == 'existing_flyover':
         nm = 'Existing Double Decker Flyover and loop at Silk Board'
@@ -143,7 +143,7 @@ json.dump(S, open(os.path.join(OUT, 'contract_structures.geojson'), 'w'))
 
 # ---- 3. labels onto their parts ----------------------------------------------------------------
 KEY = [('Proposed Rotary at Level-1', 'Proposed Rotary'), ('Proposed Flyover at Level-1', 'Proposed Flyover at Level-1'),
-       ('Proposed Loop at Level-1', 'Proposed Loop at Level-1'), ('Entry Ramp 08', 'Entry Ramp 08'),
+       ('Proposed Loop at Level-1', 'Proposed Loop at Level-1'), ('Entry Ramp 08', 'Entry Ramp 08 (Sarjapur Road): ramp'),
        ('Proposed Flyover at Level-2', 'Proposed Flyover at Level-2'),
        ('Ejipura Flyover', 'Ejipura flyover ramp'), ('Elevated Flyover at Level-1 from Marathahalli', 'Elevated Flyover at Level-1 from Marathahalli'),
        ('Approach from 100 Feet Road', 'Approach from 100 Feet Road'), ('END OF PROJECT', 'Silk Board to Bommanahalli')]
