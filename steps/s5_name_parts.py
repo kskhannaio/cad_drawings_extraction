@@ -127,8 +127,8 @@ for f, g in zip(feats, geoms):
         out.append(named(f, g, nm, 'medium', 'between the dashed "START / END OF APPROACH, SECOND LEVEL" marks; a reading of the drawing'))
         parts[nm] = shapely.unary_union([parts.get(nm, g), g])
     elif layer == 'metro_tunnel':
-        nm = 'Entry Ramp 08 (Sarjapur Road): ramp from Sarjapura Road down into the road tunnel (Main Tunnel Tube 2)'
-        out.append(named(f, g, nm, 'medium', 'the loop plan (KENDRIYA SADANA.pdf) points the label "Entry Ramp 08 (Sarjapur Road)" at this band: it leaves Sarjapura Road by St John\'s, runs under the college playground with its own chainage (0+000 to 0+596) and joins "Main Tunnel Tube 2" at junction C. The tender sheets also write "Metro Line (Phase-3A)" here, but the metro runs along Sarjapura Road'))
+        nm = 'Entry Ramp 08 (Sarjapur Road): ramp from Sarjapura Road down into the road tunnel (654 m, 2 lanes, cars only)'
+        out.append(named(f, g, nm, 'high', 'named in the tunnel project report (Feb 2025, Table 9: "Entry Ramp 8 into Main Tunnel, from Sarjapur Road / HSR layout", 654 m, 2 lanes: 190 m open cut, 200 m cut-and-cover, 264 m open cut). Also: the loop plan (KENDRIYA SADANA.pdf) points the label "Entry Ramp 08 (Sarjapur Road)" at this band: it leaves Sarjapura Road by St John\'s, runs under the college playground with its own chainage (0+000 to 0+596) and joins "Main Tunnel Tube 2" at junction C. The tender sheets also write "Metro Line (Phase-3A)" here, but the metro runs along Sarjapura Road'))
         parts[nm] = g
     elif layer == 'existing_flyover':
         nm = 'Existing Double Decker Flyover and loop at Silk Board'

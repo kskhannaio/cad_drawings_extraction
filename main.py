@@ -25,6 +25,7 @@ STEPS = [   # (name, script, what it does)
     ('metro',    's7_metro_survey.py',         'place Metro Phase-3A from the scanned survey sheets: three stations and the line to Jakkasandra'),
     ('loopplan', 's8_loop_plan.py',            'trace the tunnel approach and the subway from the plan of the loop'),
     ('concept',  's9_concept_tunnel.py',       'trace the road tunnel tubes and their ramps from the corridor concept drawing (about 2 min)'),
+    ('tunnelland', 's10_tunnel_land.py',       'land required for the road tunnel at St John\'s, from the tunnel land acquisition plan'),
 ]
 NAMES = [s[0] for s in STEPS]
 

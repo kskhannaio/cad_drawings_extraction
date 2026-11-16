@@ -55,6 +55,8 @@ P, U = np.array(P), np.array(U)
 (k, t), *_ = np.linalg.lstsq(np.column_stack([P, np.ones(len(P))]), U, rcond=None)
 res = np.abs(k * P + t - U)
 assert len(P) >= 6 and res.max() < 12, f'only {len(P)} shared labels, worst misfit {res.max():.1f} m'
+json.dump({'k': [k.real, k.imag], 't': [t.real, t.imag], 'note': 'utm43n = k * complex(x, -y) + t, x/y in unrotated PDF points'},
+          open(os.path.join(OUT, 'concept_fit.json'), 'w'))          # reused by the tunnel land step
 to_utm = lambda p: ((k * complex(p.x, -p.y) + t).real, (k * complex(p.x, -p.y) + t).imag)
 to_ll = lambda g: shapely.transform(g, lambda a: np.column_stack(inv.transform(a[:, 0], a[:, 1])))
 
@@ -90,12 +92,12 @@ def add(g, layer, what, conf, basis):
         'source': 'corridor concept drawing (OMR to Silk Board Concept, 2 September 2025), vector; placed through labels shared with the tender sheets'}})
 for colour in ('red', 'blue'):
     g, w, n = tube(segs[colour])
-    add(g, 'tunnel_tube', f'North-South road tunnel, tube drawn in {colour} (about {w:.0f} m wide)', 'medium',
-        f'cross-hatched {colour} band, {n} hatch strokes; the sheet labels the pair "TUNNEL NORTH - SOUTH CORRIDOR" with a vehicular cross passage between them. '
-        'The drawings do not say which tube this is, or how deep')
+    add(g, 'tunnel_tube', f'Hebbal to Silk Board road tunnel, tube drawn in {colour} (about {w:.0f} m wide, cars only)', 'high',
+        f'cross-hatched {colour} band, {n} hatch strokes, labelled "TUNNEL NORTH - SOUTH CORRIDOR" with a vehicular cross passage between the pair; the tunnel project report (Feb 2025) '
+        'describes twin bored tubes ending before Silk Board. The drawings do not say which tube this is, or how deep')
 box_ = band(segs['cyan'], 8)[0]
-add(box_, 'tunnel_portal', 'Box the two tunnel tubes run into, west of St John\'s junction (portal or cut-and-cover section)', 'low',
-    'cyan rectangle at the end of both tubes; the drawing does not label it')
+add(box_, 'tunnel_portal', 'TBM shaft: where the two bored tubes end, west of St John\'s junction', 'high',
+    'cyan rectangle at the end of both tubes; the tunnel land acquisition plan (St Johns Junction sheet, 30 Aug 2025) labels it "TBM Shaft", the pit for the tunnel boring machines')
 C = Point(fwd(77.614971, 12.929885))                    # St John's junction
 ramps = band(segs['orange'], 5)
 for g in ramps:
@@ -106,8 +108,8 @@ for g in ramps:
         # two ramps reach the junction: the northern one lands on Sarjapura Road (Exit Ramp 01), the other meets the Hosur Road deck
         north = max((r for r in ramps if r.distance(C) < 120), key=lambda r: r.bounds[3])
         if g is north:
-            add(g, 'tunnel_ramp', 'Exit Ramp 01: ramp from the road tunnel up onto Sarjapura Road at St John\'s junction', 'medium',
-                'orange cross-hatched band that ends on Sarjapura Road at the junction; the loop plan (KENDRIYA SADANA.pdf) points the label "Exit Ramp 01" at it')
+            add(g, 'tunnel_ramp', 'Exit Ramp 01: ramp from the road tunnel up onto Sarjapura Road at St John\'s junction (455 m, 2 lanes, cars only)', 'high',
+                'named in the tunnel project report (Feb 2025, Table 9: "Exit Ramp 1 from Main Tunnel, on Sarjapur Road / HSR layout", 455 m, 2 lanes: 50 m open cut, 200 m cut-and-cover, 205 m open cut) and labelled on the tunnel land acquisition plan. The report allows only cars in the tunnel and forecasts about 11,300 cars a day leaving by this ramp in 2027-28')
         else:
             add(g, 'tunnel_ramp', 'Ramp between the tunnel side and the Audgodi loop deck at St John\'s junction (not named on the drawings)', 'low',
                 'orange cross-hatched band that meets the end of the Hosur Road deck at the junction; it may be part of the tender\'s "tunnel approach connecting to Audgodi loop"')
