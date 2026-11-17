@@ -26,6 +26,7 @@ STEPS = [   # (name, script, what it does)
     ('loopplan', 's8_loop_plan.py',            'trace the tunnel approach and the subway from the plan of the loop'),
     ('concept',  's9_concept_tunnel.py',       'trace the road tunnel tubes and their ramps from the corridor concept drawing (about 2 min)'),
     ('tunnelland', 's10_tunnel_land.py',       'land required for the road tunnel at St John\'s, from the tunnel land acquisition plan'),
+    ('export',   's11_export.py',              'write exports/: the website layer, the QGIS GeoPackage and sheets, the OD tables'),
 ]
 NAMES = [s[0] for s in STEPS]
 
@@ -46,7 +47,7 @@ def main():
         print(f'== {name}: {what}', flush=True); t = time.time()
         runpy.run_path(os.path.join(ROOT, 'steps', script), run_name='__main__')
         print(f'   ({time.time() - t:.0f}s)', flush=True)
-    print(f'\ndone - results are in {os.path.join(ROOT, "out")}')
+    print(f'\ndone - working files in {os.path.join(ROOT, "out")}, finished files in {os.path.join(ROOT, "exports")}')
 
 if __name__ == '__main__':
     main()

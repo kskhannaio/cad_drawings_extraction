@@ -1,0 +1,30 @@
+FromIndiranagaratoSilkboard,,,,,,,,,,,,,,,,,AADTTrafficinNumbers,,,,,,,,,,,,
+Node,Sl No .,ADT,AADT,Total Number of vehicles anticipated diversion to elevated corridor Avg 60% on AADT,OD Survey on anticipated diversion traffic to elevated corridor in %,OD Survey vehicle in NOS,From,Entry/Exit,OD Survey on anticipated diversion traffic to elevated corridor in %,OD Survey vehicle in NOS,Willingness to pay toll vehicle in %,Willingness to pay toll vehicle in Nos,To,Entry/Exit,Roadlength inKm,Structure lengthinKm,Standard Buses,Mini Buses,Cars/ Jeeps,Pickup Vans/ Maxicabs,Two Wheelers,Passenger Auto,2-Axle Trucks,3-Axle Trucks,MAVs,LCVs,Goods Auto,Tractor& Trailer,Total Vehicles
+1-4,1,27300,27846,16842,16%,2703,1 .Indiranagara,Entry-1,26%,703,76%,535,4 Domlur Jn .,Exist -1,2.66,2.66,2,3,241,20,236,2,0,0,0,15,16,0,535
+1-5,2,,,,,,,,20%,535,84%,450,5 .Silk board,Exist -2,3.59,3.59,0,2,173,35,195,23,0,0,0,12,10,0,450
+1-5a,3,,,,,,,,16%,438,85%,372,5a.HSR Layout,Exist -2,3.64,3.64,0,2,133,25,180,18,0,0,0,8,6,0,372
+1-6,4,,,,,,,,26%,703,76%,535,6 .Electronic city,Exist -2,5.19,5.19,0,3,231,20,236,2,0,0,0,27,16,0,535
+1-7,5,,,,,,,,12%,324,51%,165,7 .Audgodi flyover,Exist -2,2.93,2.93,0,2,106,10,38,0,0,0,0,6,3,0,165
+2-5,6,,,,17%,2987,2 Sarjapura . (Entry),Entry-3,39%,805,80%,644,5 .Silk board,Exist-5,1.79,1.79,0,1,253,45,292,9,5,1,0,15,23,0,644
+2-5a,7,,,,,,,,36%,648,91%,591,5a.HSR Layout,Exist-4,1.84,1.84,0,2,205,52,269,9,5,1,0,22,26,0,591
+2-6,8,,,,,,,,28%,849,74%,630,6 .Electronic city,Exist-6,2.73,2.73,0,2,265,26,274,13,15,3,0,19,13,0,630
+2-7,9,,,,,,,,23%,685,68%,466,7 .Audgodi flyover,Exist-3,1.2,1.2,0,2,197,13,194,25,4,0,0,20,10,1,466
+3-5,10,,,,14%,2418,3 .Ejipura,Entry-2,22%,522,70%,366,5 .Silk board,Exist-5,1.59,1.59,0,2,132,22,159,31,2,0,0,10,8,0,366
+3-5a,11,,,,,,,,18%,435,86%,376,5a.HSR Layout,Exist-4,1.64,1.64,0,2,140,22,150,33,2,0,0,12,15,0,376
+3-6,12,,,,,,,,36%,872,75%,654,6 .Electronic city,Exist-6,2.53,2.53,0,2,287,26,279,6,12,2,0,25,15,0,654
+3-7,13,,,,,,,,24%,589,63%,371,7 .Audgodi flyover,Exist-3,1,1,0,2,180,6,154,5,0,0,0,16,8,0,371
+4-8,14,,,,13%,2134,4 .Double ducker (fromRagigudda ),Entry-4,35%,737,70%,516,8 Indiranagara .,Exit-1,3.35,3.35,0,2,226,20,238,2,0,0,0,15,13,0,516
+4-4,15,,,,,,,,31%,660,67%,440,4 Domlur Jn .,Exist-2,1.59,1.59,0,3,199,13,197,2,0,0,0,16,10,0,440
+4-7,16,,,,,,,,35%,737,70%,516,7 .Audgodi flyover,Exist-3,1.63,1.63,0,4,231,20,236,2,0,0,0,10,13,0,516
+,,,,,FromSilkboardtoIndiranagara,,,,,,,,,,,,,,,,,,,,,,,,
+5-8,17,,,,14%,2276,5 .Silk board,Entry-5,33%,754,71%,534,8 Indiranagara .,Exit-1,3.59,3.59,0,3,248,20,238,2,0,0,0,10,13,0,534
+5-4,18,,,,,,,,32%,738,70%,518,4 Domlur Jn .,Exist-2,1.59,1.59,0,3,229,20,239,2,0,0,0,12,13,0,518
+5-7,19,,,,,,,,34%,784,72%,565,7 .Audgodi flyover,Exist-3,1.87,1.87,0,2,266,20,236,2,5,1,1,20,12,0,565
+6-9,20,,,,10%,1704,6 .Electronic city,Entry-6,100%,1704,62%,1048,9 to Banashankari . (Doubledeckar),Exist-7,1.51,1.51,0,4,381,52,435,91,3,2,0,54,26,0,1048
+7-2,21,,,,16%,2620,7 Audgodi .,Entry-7,2%,53,5%,3,2 .Sarjapura,Exist-3,1.2,1.2,0,0,2,0,1,0,0,0,0,0,0,0,3
+7-3,22,,,,,,,,4%,105,75%,79,3 .Ejipura,Exist-2,1.00,1.00,0,0,35,0,27,10,0,0,0,5,2,0,79
+7-1,23,,,,,,,,6%,159,65%,102,1 .Indiranagara,Exist-1,2.93,2.93,0,0,45,2,31,17,0,0,0,4,3,0,102
+7-5,24,,,,,,,,33%,863,80%,690,5 .Silkboard,Exist-5,1.79,1.79,0,0,265,35,365,17,0,0,0,5,3,0,690
+7-5a,25,,,,,,,,25%,655,80%,524,5a.HSR Layout,Exist-4,1.55,1.55,0,0,190,26,289,14,0,0,0,3,2,0,524
+7-6,26,,,,,,,,30%,785,85%,667,6 .Electronic city,Exist-6,2.73,2.73,0,0,235,54,334,16,0,0,0,15,13,0,667
+,Total,,,,,16842,,,,16842,,12357,,,,,2,48,5095,604,5522,353,53,10,1,376,292,1,12357

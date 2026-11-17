@@ -5,3 +5,4 @@ scipy
 shapely
 pyproj
 pillow
+fiona             # writes the QGIS GeoPackage in exports/qgis/

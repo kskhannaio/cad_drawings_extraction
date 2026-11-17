@@ -1,0 +1,171 @@
+{
+ "source": "OD and Toll Analysis OMR to Silk Board.pdf",
+ "year": "2025-26",
+ "corridor": "Indiranagar to Silk Board, both directions",
+ "vehicles_per_day": {
+  "Standard Buses": 697,
+  "Mini Buses": 198,
+  "Cars/ Jeeps": 7968,
+  "Pickup Vans/ Maxicabs": 1335,
+  "Two Wheelers": 11758,
+  "Passenger Auto": 3478,
+  "2-Axle Trucks": 220,
+  "3-Axle Trucks": 33,
+  "MAVs": 9,
+  "LCVs": 1039,
+  "Goods Auto": 480,
+  "Tractor& Trailer": 85
+ },
+ "vehicles_per_day_total": 27300,
+ "aadt_total": 27846,
+ "growth_percent_per_year": 4.23,
+ "share_diverting_to_elevated_corridor_percent": {
+  "Standard Buses": 10.0,
+  "Mini Buses": 40.0,
+  "Cars/ Jeeps": 90.0,
+  "Pickup Vans/ Maxicabs": 55.0,
+  "Two Wheelers": 83.0,
+  "Passenger Auto": 60.0,
+  "2-Axle Trucks": 30.0,
+  "3-Axle Trucks": 30.0,
+  "MAVs": 10.0,
+  "LCVs": 51.0,
+  "Goods Auto": 60.0,
+  "Tractor& Trailer": 2.0
+ },
+ "diverted_vehicles_per_day": 16842,
+ "diverted_share_of_aadt_percent": 60.5,
+ "tollable_vehicles_per_day": 12357,
+ "diverted_trips_by_entry_exit": [
+  {
+   "from": "Indiranagara",
+   "to": "Domlur Jn",
+   "vehicles_per_day": 703
+  },
+  {
+   "from": "Indiranagara",
+   "to": "Silk board",
+   "vehicles_per_day": 535
+  },
+  {
+   "from": "Indiranagara",
+   "to": "HSR Layout",
+   "vehicles_per_day": 438
+  },
+  {
+   "from": "Indiranagara",
+   "to": "Electronic city",
+   "vehicles_per_day": 703
+  },
+  {
+   "from": "Indiranagara",
+   "to": "Audgodi flyover",
+   "vehicles_per_day": 324
+  },
+  {
+   "from": "Sarjapura (Entry)",
+   "to": "Silk board",
+   "vehicles_per_day": 805
+  },
+  {
+   "from": "Sarjapura (Entry)",
+   "to": "HSR Layout",
+   "vehicles_per_day": 648
+  },
+  {
+   "from": "Sarjapura (Entry)",
+   "to": "Electronic city",
+   "vehicles_per_day": 849
+  },
+  {
+   "from": "Sarjapura (Entry)",
+   "to": "Audgodi flyover",
+   "vehicles_per_day": 685
+  },
+  {
+   "from": "Ejipura",
+   "to": "Silk board",
+   "vehicles_per_day": 522
+  },
+  {
+   "from": "Ejipura",
+   "to": "HSR Layout",
+   "vehicles_per_day": 435
+  },
+  {
+   "from": "Ejipura",
+   "to": "Electronic city",
+   "vehicles_per_day": 872
+  },
+  {
+   "from": "Ejipura",
+   "to": "Audgodi flyover",
+   "vehicles_per_day": 589
+  },
+  {
+   "from": "Double ducker (fromRagigudda )",
+   "to": "Indiranagara",
+   "vehicles_per_day": 737
+  },
+  {
+   "from": "Double ducker (fromRagigudda )",
+   "to": "Domlur Jn",
+   "vehicles_per_day": 660
+  },
+  {
+   "from": "Double ducker (fromRagigudda )",
+   "to": "Audgodi flyover",
+   "vehicles_per_day": 737
+  },
+  {
+   "from": "Silk board",
+   "to": "Indiranagara",
+   "vehicles_per_day": 754
+  },
+  {
+   "from": "Silk board",
+   "to": "Domlur Jn",
+   "vehicles_per_day": 738
+  },
+  {
+   "from": "Silk board",
+   "to": "Audgodi flyover",
+   "vehicles_per_day": 784
+  },
+  {
+   "from": "Electronic city",
+   "to": "to Banashankari (Doubledeckar)",
+   "vehicles_per_day": 1704
+  },
+  {
+   "from": "Audgodi",
+   "to": "Sarjapura",
+   "vehicles_per_day": 53
+  },
+  {
+   "from": "Audgodi",
+   "to": "Ejipura",
+   "vehicles_per_day": 105
+  },
+  {
+   "from": "Audgodi",
+   "to": "Indiranagara",
+   "vehicles_per_day": 159
+  },
+  {
+   "from": "Audgodi",
+   "to": "Silkboard",
+   "vehicles_per_day": 863
+  },
+  {
+   "from": "Audgodi",
+   "to": "HSR Layout",
+   "vehicles_per_day": 655
+  },
+  {
+   "from": "Audgodi",
+   "to": "Electronic city",
+   "vehicles_per_day": 785
+  }
+ ]
+}
