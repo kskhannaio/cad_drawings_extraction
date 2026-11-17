@@ -4,7 +4,8 @@ Writes exports/ (tracked in git, except the QGIS files, which are large):
 
   exports/website/plans.geojson   the "What's planned" layer of the study website, ready to copy to its data/ folder:
                                   kind=structure (layer, what, area_m2; conf/basis for named parts; scan = which non-tender
-                                  sheet a shape comes from; statement for the tunnel land) and kind=label
+                                  sheet a shape comes from; statement for the tunnel land) and kind=label (group = roads,
+                                  metro or tunnel: the layer it goes with; labels known to be wrong are left out)
   exports/od/                     the origin-destination study's six tables (CSV) and od_summary.json
   exports/qgis/corridor_drawings.gpkg
                                   one GeoPackage (WGS84) for the QGIS templates:
@@ -38,6 +39,17 @@ for fname, scan in SOURCES:
     for f in rd(fname)['features']:
         structures.append((f, scan))
 
+# labels: which group of structures each names, so a map can show a label only with its layer; and labels the drawings
+# get wrong, which the website leaves out (QGIS keeps them, with the reason)
+import re
+def label_group(text):
+    t = text.lower()
+    if re.search(r'tunnel|entry ramp|exit ramp', t): return 'tunnel'
+    if re.search(r'metro|station', t): return 'metro'
+    return 'roads'                                               # flyovers, loops, rotary, levels, approaches, underpass
+WRONG = {'Metro Line (Phase-3A)': 'The general alignment drawing writes this on the band that is Entry Ramp 08 into the road tunnel '
+                                  '(named on the plan of the loop and in the tunnel project report); the metro runs along Sarjapura Road.'}
+
 # ---- website: the "What's planned" layer -------------------------------------------------------------------------
 web = []
 for f, scan in structures:
@@ -49,7 +61,8 @@ for f, scan in structures:
     web.append({'type': 'Feature', 'properties': props, 'geometry': {'type': f['geometry']['type'], 'coordinates': rnd(f['geometry']['coordinates'])}})
 for f in rd('contract_labels.geojson')['features']:
     p = f['properties']
-    web.append({'type': 'Feature', 'properties': {'kind': 'label', 'label': p['label'], 'source': p['source'].split(' (')[0],
+    if p['label'] in WRONG: continue
+    web.append({'type': 'Feature', 'properties': {'kind': 'label', 'label': p['label'], 'group': label_group(p['label']), 'source': p['source'].split(' (')[0],
                 'ocr': 'OCR' in p['source'], 'moved': 'drawn_lon' in p}, 'geometry': {'type': 'Point', 'coordinates': rnd(f['geometry']['coordinates'])}})
 web_path = os.path.join(EXP, 'website', 'plans.geojson')
 json.dump({'type': 'FeatureCollection', 'features': web}, open(web_path, 'w'), separators=(',', ':'))
@@ -90,7 +103,8 @@ for f, scan in structures:
     if g['type'] == 'Polygon': g = {'type': 'MultiPolygon', 'coordinates': [g['coordinates']]}
     rows.append(({k: p.get(k) for k in keys}, g))
 write('structures', rows, 'MultiPolygon')
-write('labels', [(f['properties'], f['geometry']) for f in rd('contract_labels.geojson')['features']], 'Point')
+write('labels', [({**f['properties'], 'group': label_group(f['properties']['label']), 'wrong': WRONG.get(f['properties']['label'])}, f['geometry'])
+                 for f in rd('contract_labels.geojson')['features']], 'Point')
 for layer, fname, geom in (('drawing_lines', 'full_lines.geojsonl', 'LineString'), ('drawing_shapes', 'full_polygons.geojsonl', 'MultiPolygon'),
                            ('drawing_text', 'full_text.geojsonl', 'Point')):
     feats = []
