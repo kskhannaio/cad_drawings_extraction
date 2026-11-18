@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seventeen Sheets, One Drawing</title>
+<meta name="description" content="How the 17 sheets of the elevated-corridor tender drawings were linked into one drawing and placed on the map.">
+<style>
+:root { --bg: #f6f5f1; --surface: #ffffff; --fg: #1d2326; --muted: #5d6870; --rule: #d9d6cc; --accent: #0b6e7a; }
+@media (prefers-color-scheme: dark) { :root { --bg: #15191b; --surface: #1d2326; --fg: #e8e6df; --muted: #a3acb2; --rule: #343c40; --accent: #4fc1cf; } }
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 32px 16px 56px; }
+h1 { font-size: clamp(26px, 4vw, 36px); line-height: 1.15; margin: 0 0 8px; }
+h2 { font-size: 20px; margin: 34px 0 10px; }
+p, li { max-width: 72ch; }
+.lede { color: var(--muted); margin: 0 0 8px; }
+.chart { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; overflow-x: auto; }
+.chart pre.mermaid { margin: 0; min-width: 620px; text-align: center; background: none; }
+.fallback { display: block; font-size: 14px; color: var(--muted); }
+.tablebox { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; min-width: 520px; background: var(--surface); font-size: 14px; }
+th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--rule); }
+th { color: var(--muted); font-weight: 600; font-size: 13px; }
+td.n { font-variant-numeric: tabular-nums; white-space: nowrap; }
+a { color: var(--accent); }
+code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .9em; }
+footer { margin-top: 40px; font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Seventeen sheets, one drawing</h1>
+  <p class="lede">The elevated-corridor tender (B-SMILE, Schedule A) has 17 vector CAD sheets at 1:2000: topographical survey 1–6, general alignment drawing 1–6 and land acquisition plan 1–5. Each sheet is turned to fit its paper, so no two line up as printed. This is how the pipeline puts them back together and onto the map (step <code>register</code>, <code>steps/s2_register_sheets.py</code>).</p>
+
+  <h2>The method</h2>
+  <div class="chart">
+<pre class="mermaid">
+flowchart TD
+  PDF["17 vector sheets<br/>tender PDF, pages 24–40"]
+  L["Read the labels inside each drawing area<br/>chainage marks, building and road names"]
+  M["Match labels that two sheets share"]
+  R["Fit each sheet to a neighbour<br/>scale + rotation + shift, robust to stray matches (RANSAC)"]
+  C["Chain every sheet to one reference sheet<br/>general alignment drawing 2"]
+  ONE["One drawing<br/>all 17 sheets in the same coordinates"]
+  OSM["OpenStreetMap roads<br/>road-edge lines built from the extract"]
+  G["Grey road areas on the sheets"]
+  F["One fit of the whole drawing to the map<br/>road edges on road edges"]
+  OUT["georef.json<br/>where every sheet sits on the map"]
+  PDF --> L --> M --> R --> C --> ONE
+  ONE --> G --> F
+  OSM --> F --> OUT
+  classDef step fill:#e3f1f3,stroke:#0b6e7a,color:#1d2326
+  classDef data fill:#ece9e0,stroke:#8a8576,color:#1d2326
+  class L,M,R,C,F step
+  class PDF,OSM,G,ONE,OUT data
+</pre>
+    <span class="fallback" id="fallback1" hidden>Each sheet's labels are matched with a neighbouring sheet's, each sheet is fitted to that neighbour (scale, rotation, shift), and the chain of fits brings all 17 into the coordinates of general alignment drawing 2. That one drawing is then fitted to the map so its grey road areas sit on OpenStreetMap road edges.</span>
+  </div>
+
+  <h2>Which sheet was linked to which</h2>
+  <p>Each arrow is one fit through labels both sheets show, with the number of shared labels. Every chain ends at general alignment drawing 2.</p>
+  <div class="chart">
+<pre class="mermaid">
+flowchart RL
+  REF(["GAD 2<br/>reference"])
+  T2["Survey 2"] -- 24 --> REF
+  LA2["Land plan 2"] -- 19 --> REF
+  T3["Survey 3"] -- 11 --> T2
+  T1["Survey 1"] -- 24 --> T3
+  LA1["Land plan 1"] -- 12 --> LA2
+  LA3["Land plan 3"] -- 17 --> LA1
+  G3["GAD 3"] -- 13 --> LA3
+  G1["GAD 1"] -- 16 --> G3
+  G4["GAD 4"] -- 9 --> G3
+  G5["GAD 5"] -- 26 --> G4
+  G6["GAD 6"] -- 3 --> G5
+  LA4["Land plan 4"] -- 22 --> G4
+  LA5["Land plan 5"] -- 21 --> LA4
+  T5["Survey 5"] -- 13 --> LA5
+  T6["Survey 6"] -- 2 --> LA5
+  T4["Survey 4"] -- 12 --> T5
+  classDef ref fill:#0b6e7a,stroke:#0b6e7a,color:#ffffff
+  classDef gad fill:#e3f1f3,stroke:#0b6e7a,color:#1d2326
+  classDef sur fill:#ece9e0,stroke:#8a8576,color:#1d2326
+  classDef la fill:#fff1db,stroke:#e67700,color:#1d2326
+  class REF ref
+  class G1,G3,G4,G5,G6 gad
+  class T1,T2,T3,T4,T5,T6 sur
+  class LA1,LA2,LA3,LA4,LA5 la
+</pre>
+    <span class="fallback" id="fallback2" hidden>Survey 2 and land plan 2 link straight to GAD 2; the other sheets reach it through chains of neighbours (for example GAD 6 to GAD 5 to GAD 4 to GAD 3 to land plan 3 to land plan 1 to land plan 2 to GAD 2).</span>
+  </div>
+
+  <h2>How well it fits</h2>
+  <ul>
+    <li><b>Sheet to sheet:</b> shared labels land within 0.1 m of each other after the fit.</li>
+    <li><b>Same scale everywhere:</b> every sheet comes out at 0.691 m per PDF point (1:2000), to within 0.1%, without being told. That is a good sign the links are right.</li>
+    <li><b>Drawing to map:</b> on sheets with plenty of road outlines, half the road edges sit within 0.8–1.5 m of OpenStreetMap's, and 71–97% within 3 m.</li>
+    <li><b>Weak links:</b> survey 6 and GAD 6 share only 2 and 3 labels with their neighbours. Where so few labels are shared, the sheet is placed by a shift only, keeping the common scale and orientation.</li>
+  </ul>
+  <div class="tablebox">
+  <table>
+    <thead><tr><th>Sheet</th><th>Linked to</th><th>Shared labels</th><th>Road edges within 3 m of OpenStreetMap</th></tr></thead>
+    <tbody>
+      <tr><td>General alignment drawing 2</td><td>reference</td><td class="n">–</td><td class="n">71%</td></tr>
+      <tr><td>General alignment drawing 5</td><td>GAD 4</td><td class="n">26</td><td class="n">80%</td></tr>
+      <tr><td>General alignment drawing 6</td><td>GAD 5</td><td class="n">3</td><td class="n">94%</td></tr>
+      <tr><td>Topographical survey 4 and 5</td><td>survey 5, land plan 5</td><td class="n">12, 13</td><td class="n">97%</td></tr>
+      <tr><td>Land acquisition plan 4 and 5</td><td>GAD 4, land plan 4</td><td class="n">22, 21</td><td class="n">97%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The full per-sheet list is in <code>out/georef_report.txt</code> after a run.</p>
+
+  <h2>Then</h2>
+  <p>With every sheet on the map, the pipeline extracts each line, filled shape and text item, traces the planned structures by fill colour, reads pen-stroke labels with OCR, names the parts from their labels, and exports files for the <a href="https://kskhannaio.github.io/corridor_design_challenge/">study website</a> and the QGIS templates. See the <a href="https://github.com/kskhannaio/cad_drawings_extraction">repository</a>, and the <a href="https://kskhannaio.github.io/loop_sumo_poc/">overview of how the data flows</a>.</p>
+
+  <footer>Road data © OpenStreetMap contributors. Drawings: B-SMILE elevated-corridor tender, Schedule A.</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<script>
+(function () {
+  if (!window.mermaid) { document.getElementById('fallback1').hidden = false; document.getElementById('fallback2').hidden = false; return; }
+  var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  mermaid.initialize({ startOnLoad: true, theme: dark ? 'dark' : 'neutral', securityLevel: 'strict',
+                       themeVariables: { fontSize: '15px', fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, sans-serif' },
+                       flowchart: { htmlLabels: true, curve: 'basis', useMaxWidth: true } });
+})();
+</script>
+</body>
+</html>
